@@ -1,0 +1,11 @@
+{
+  "name": "react-static-url-router",
+  "version": "0.0.1",
+  "description": "A router that works with query params to allow routing feature in one signe URL, useful when you create a React App that is meant to be implemented in several websites on wich you do not have control other DNS settings. With this the page can be refetch and reapear as it was left.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "https://github.com/troptropcontent",
+  "license": "MIT"
+}
