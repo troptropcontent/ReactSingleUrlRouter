@@ -4,11 +4,18 @@
   "description": "A router that works with query params to allow routing feature in one signe URL, useful when you create a React App that is meant to be implemented in several websites on wich you do not have control other DNS settings. With this the page can be refetch and reapear as it was left.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "lint": "eslint  --ignore-path .gitignore --ext .js,.ts .",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
   },
   "author": "https://github.com/troptropcontent",
   "license": "MIT",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0",
+    "prettier": "^3.1.0",
     "typescript": "^5.3.2"
   }
 }
