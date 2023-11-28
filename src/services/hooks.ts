@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { findCurrentLocation } from "./utils";
 import { RouterContext } from "../Router";
+import { RouteContext } from "../Routes";
 
 export const useCurrentLocation = (): string => findCurrentLocation();
 
@@ -33,3 +34,16 @@ const useNavigate = (): ((path: string) => void) => {
   return navigate;
 };
 export { useNavigate };
+
+/**
+ * This hook allows us to access the params from the current route
+ */
+export const useParams = (): object => {
+  const route_context = useContext(RouteContext);
+  if (!route_context) {
+    throw new Error("useParams must be used inside a Routes component");
+  }
+  const { params } = route_context;
+
+  return params;
+};

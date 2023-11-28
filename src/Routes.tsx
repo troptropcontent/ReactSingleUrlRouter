@@ -22,6 +22,6 @@ const Routes = ({children}: {children: JSX.Element[]} ) => {
   
 }
 
-export {Routes} 
+export {Routes, RouteContext} 
 
 
