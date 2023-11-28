@@ -8,6 +8,6 @@ export type RouteProps = {
 /**
  * The component that allows us to register a route
  */
-const Route = (props: RouteProps) => <props.component/>
+const Route = (props: RouteProps) => props && null
 
 export {Route}
