@@ -2,7 +2,10 @@ import { createContext} from "react"
 import { findDefaultRoute, findMatchingRoute, findRootRoute } from "./services/utils"
 import { useLocation } from "./services/hooks";
 
-const RouteContext = createContext({params: {}});
+type RouteContextType = {
+  params: object
+} | null
+const RouteContext = createContext<RouteContextType>(null);
 
 /**
  * This component conatins all the routes and is responsible of selecting the relevant one to render.
