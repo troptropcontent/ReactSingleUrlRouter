@@ -75,7 +75,7 @@ export const findMatchingRoute = (
 ): MatchedRoute | null => {
   let matchingRoute: null | MatchedRoute = null;
 
-  for (const route of routes) {
+  for (const route of routes.filter((route) => route.props.path)) {
     const regex = buildRegexFromPath(route.props.path);
     const match = path.match(regex);
     if (match) {
