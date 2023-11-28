@@ -11,6 +11,9 @@ const RouterContext = createContext<RouterContextType>(null)
 type RouterProps = {
   children: ReactNode
 }
+/**
+ * The base component that will provide the Router context
+ */
 const Router = ({children}: RouterProps) => {
   const currentLocation = useCurrentLocation()
   const [location, setLocation] = useState<string>(currentLocation)
@@ -38,4 +41,7 @@ const Router = ({children}: RouterProps) => {
   )
 }
 
-export default Router
+export {
+  Router,
+  RouterContext
+} 
