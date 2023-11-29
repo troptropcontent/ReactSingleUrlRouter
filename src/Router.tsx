@@ -19,7 +19,7 @@ const Router = ({queryKey = "react_static_url_router", children}: RouterProps) =
   const [location, setLocation] = useState<string>(currentLocation())
   const navigate = (newLocation: string) => {
     const url = new URL(window.location.href);
-    url.searchParams.set("", newLocation);
+    url.searchParams.set(queryKey, newLocation);
     window.history.pushState({}, "", url);
     setLocation(newLocation)
   }
