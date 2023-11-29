@@ -4,7 +4,19 @@ import { RouterContext } from "./Router"
 /**
  * The component that allows us to navigate to a route
  */
-const Link = ({to, className, onClick, children}: {to: string, onClick?: () => void, className?: string, children: ReactNode}) => {
+type LinkProps = {
+  onClick?: null
+  to: string
+  className?: string
+  children: ReactNode
+} | {
+  onClick: () => void
+  to?: null
+  className?: string
+  children: ReactNode
+}
+
+const Link = ({to, className, onClick, children}: LinkProps) => {
   const router_context = useContext(RouterContext)
   if(!router_context) {
     throw new Error("Link must be used inside a Router component")
@@ -13,9 +25,9 @@ const Link = ({to, className, onClick, children}: {to: string, onClick?: () => v
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault()
-    onClick ? onClick() : navigate(`${event.currentTarget.getAttribute("href")}`)
+    onClick ? onClick() : navigate(to)
   }
-  return <a href={to} onClick={handleClick} className={className}>{children}</a>
+  return <a href={to || "#"} onClick={handleClick} className={className}>{children}</a>
 }
 
 export {Link}
