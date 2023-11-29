@@ -16,9 +16,9 @@ export const buildRegexFromPath = (path: string): RegExp => {
 /**
  * Find the current location from the URL query params, return '/' if not found
  */
-export const findCurrentLocation = (): string => {
+export const findCurrentLocation = (queryKey: string): string => {
   const queryParams = new URLSearchParams(window.location.search);
-  return queryParams.get("react_single_url_router_path") || "/";
+  return queryParams.get(queryKey) || "/";
 };
 
 type MatchedRoute = {

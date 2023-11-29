@@ -1,9 +1,6 @@
 import { useContext } from "react";
-import { findCurrentLocation } from "./utils";
 import { RouterContext } from "../Router";
 import { RouteContext } from "../Routes";
-
-export const useCurrentLocation = (): string => findCurrentLocation();
 
 export const useLocation = (): {
   pathName: string;

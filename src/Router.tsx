@@ -1,5 +1,4 @@
 import { ReactNode, createContext, useCallback, useEffect, useState } from 'react'
-import { useCurrentLocation } from './services/hooks'
 import { findCurrentLocation } from './services/utils'
 
 type RouterContextType = {
@@ -9,23 +8,24 @@ type RouterContextType = {
 const RouterContext = createContext<RouterContextType>(null)
 
 type RouterProps = {
+  queryKey?: string,
   children: ReactNode
 }
 /**
  * The base component that will provide the Router context
  */
-const Router = ({children}: RouterProps) => {
-  const currentLocation = useCurrentLocation()
-  const [location, setLocation] = useState<string>(currentLocation)
+const Router = ({queryKey = "react_static_url_router", children}: RouterProps) => {
+  const currentLocation = () => findCurrentLocation(queryKey)
+  const [location, setLocation] = useState<string>(currentLocation())
   const navigate = (newLocation: string) => {
     const url = new URL(window.location.href);
-    url.searchParams.set("react_single_url_router_path", newLocation);
+    url.searchParams.set("", newLocation);
     window.history.pushState({}, "", url);
     setLocation(newLocation)
   }
 
   const handleHashChange = useCallback(() => {
-    setLocation(findCurrentLocation());
+    setLocation(currentLocation());
   }, []);
 
   useEffect(() => {
