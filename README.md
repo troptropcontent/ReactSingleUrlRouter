@@ -26,5 +26,5 @@ In the accessed page you will have the different params accessible through a use
 
 ```Ts
 const params = useParams()
-## params will return {id: 12, color: 'blue'}
+// params will return {id: 12, color: 'blue'}
 ```
